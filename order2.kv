@@ -1,0 +1,165 @@
+MDScreen:
+    name: 'order2'
+    MDFloatLayout:
+        md_bg_color: '#b613c0'
+        MDCard:
+            size_hint: None, None
+            size: 300, 600
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            elevation: 3
+            padding: 25
+            spacing: 25
+            orientation: 'vertical'
+            radius:30
+
+
+            MDLabel:
+                text: app.slogan()['phone']
+                font_name: 'B Lotus'
+                font_size: 22
+                halign: 'right'
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding_y: 15
+                color:'white'
+                md_bg_color: '#b613c0'
+                padding:8
+
+            MDTextField:
+                id: user
+#                hint_text: '0 9 _ _  _ _ _  _ _ _ _'
+                text: app.slogan()['user']
+                font_name:'B Lotus'
+                halign:'right'
+                validator: 'phone'
+                icon_left: "phone"
+                size_hint_x: None
+                width: 200
+                font_size: 18
+                pos_hint: {"center_x": 0.5}
+                on_focus: app.focus()
+                color: '#b613c0'
+
+
+            MDLabel:
+                text: app.slogan()['time']
+                font_name: 'B Lotus'
+                font_size: 22
+                halign: 'right'
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding_y: 15
+                color:'white'
+                md_bg_color: '#b613c0'
+                padding:8
+            MDBoxLayout:
+                orientation: 'horizontal'
+#                size_hint:None, None
+                pos_hint:{'center_x':.5}
+                size: 300,30
+                padding:20
+#                md_bg_color:'grey'
+                MDIconButton:
+                    icon:'calendar'
+                    size_hint:.2,.1
+                    on_release:app.choose_date()
+                MDLabel:
+                    id: chosen_date
+                    text:app.slogan()['day']
+                    font_name: 'B Lotus'
+                    halign:'right'
+                    size_hint:.7,.1
+
+            MDBoxLayout:
+                size_hint: None, None
+                size : 100,10
+                pos_hint:{'center_x':.5}
+
+            MDBoxLayout:
+                orientation : 'vertical'
+
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint:1,.4
+                    MDLabel:
+                        text: '9 - 12'
+                        font_name: 'B Lotus'
+                        font_size:17
+                        size_hint:.7,.3
+                        halign:'right'
+                    MDCheckbox:
+                        group: 'time_range'
+                        id : nine12
+                        size_hint:.2,.3
+                        color : '#b613c0'
+                        on_active: lambda x='moon',y='ansari': app.choose_(x,y)
+
+                MDBoxLayout:
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint:1,.4
+
+                    MDLabel:
+                        text: '12 - 15'
+                        font_name: 'B Lotus'
+                        font_size:17
+                        size_hint:.7,.3
+                        halign:'right'
+                    MDCheckbox:
+                        group: 'time_range'
+                        id : twelve15
+                        size_hint:.2,.3
+                        color : '#b613c0'
+                        on_active: lambda x='moon',y='ansari': app.choose_(x,y)
+
+                MDBoxLayout:
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint:1,.4
+
+                    MDLabel:
+                        text: '15 - 18'
+                        font_name: 'B Lotus'
+                        font_size:17
+                        size_hint:.7,.3
+                        halign:'right'
+                    MDCheckbox:
+                        group: 'time_range'
+                        id : fifteen18
+                        size_hint:.2,.3
+                        color : '#b613c0'
+                        on_active: lambda x='moon',y='ansari': app.choose_(x,y)
+                MDBoxLayout:
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint:1,.4
+
+                    MDLabel:
+                        text: '18 - 21'
+                        font_name: 'B Lotus'
+                        font_size:17
+                        size_hint:.7,.3
+                        halign:'right'
+                    MDCheckbox:
+                        group: 'time_range'
+                        id : eighteen21
+                        size_hint:.2,.3
+                        color : '#b613c0'
+                        on_active: lambda x='moon',y='ansari': app.choose_(x,y)
+                MDBoxLayout:
+
+
+
+
+            MDRectangleFlatButton:
+                md_bg_color: '#b613c0'
+                theme:'Custom'
+                text_color: 'white'
+                text: app.slogan()['address']
+                font_name:'B Lotus'
+                font_size: 22
+                halign:'center'
+                pos_hint: {"center_x": 0.5}
+                on_press: app.order_addr()
+                size_hint: 1,.01
+                radius:30,40

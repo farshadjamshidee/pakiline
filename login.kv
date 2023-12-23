@@ -1,0 +1,59 @@
+MDScreen:
+    name : 'login'
+    MDFloatLayout:
+        md_bg_color: '#b613c0'
+        MDCard:
+            size_hint: None, None
+            size: 300, 500
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            elevation: 3
+            padding: 25
+            spacing: 25
+            orientation: 'vertical'
+            radius:30
+
+            MDLabel:
+                id: welcome_label
+                text: app.slogan()['welcome']
+                font_name: 'B Lotus'
+                font_size: 22
+                halign: 'center'
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding_y: 15
+                color:'#b613c0'
+
+            MDTextField:
+                id: user
+#                hint_text: '0 9 _ _  _ _ _  _ _ _ _'
+                text: app.slogan()['user']
+                font_name:'B Lotus'
+                halign:'right'
+                validator: 'phone'
+                icon_left: "phone"
+                size_hint_x: None
+                width: 200
+                font_size: 18
+                pos_hint: {"center_x": 0.5}
+                on_focus: app.focus()
+                color: '#b613c0'
+
+            MDBoxLayout:
+                id: options
+                orientation:'vertical'
+
+
+            MDRectangleFlatButton:
+                md_bg_color: '#b613c0'
+                theme:'Custom'
+                text_color: 'white'
+                text: app.slogan()['submit_text']
+                font_name:'B Lotus'
+                font_size: 22
+                halign:'center'
+                pos_hint: {"center_x": 0.5}
+                on_press: app.logger()
+                size_hint: 1,.1
+                radius:30,40
+
+

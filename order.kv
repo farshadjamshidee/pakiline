@@ -1,0 +1,107 @@
+#:import toast kivymd.toast.toast
+MDScreen:
+    name: 'order'
+
+    MDFloatLayout:
+        md_bg_color: '#b613c0'
+        MDCard:
+            size_hint: None, None
+            size: 300, 600
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            elevation: 3
+            padding: 25
+            spacing: 25
+            orientation: 'vertical'
+            radius:30
+
+            MDLabel:
+                text: app.slogan()['choose_lbl']
+                font_name: 'B Lotus'
+                font_size: 22
+                halign: 'right'
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding_y: 15
+                color:'white'
+                md_bg_color: '#b613c0'
+                padding:8
+
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint:1,.4
+
+                MDLabel:
+                    text: app.slogan()['agency_one']
+                    font_name: 'B Lotus'
+                    font_size:17
+                    size_hint:.7,.3
+                    halign:'right'
+                MDCheckbox:
+                    group: 'agency'
+                    id : moon
+                    size_hint:.2,.3
+                    color : '#b613c0'
+                    on_active: lambda x='moon',y='ansari': app.choose(x,y)
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint:1,.4
+                MDLabel:
+                    text: app.slogan()['agency_two']
+                    font_name: 'B Lotus'
+                    font_size:17
+                    size_hint:.7,.3
+                    halign:'right'
+                MDCheckbox:
+                    group: 'agency'
+                    id : ansari
+                    size_hint:.2,.3
+                    color : '#b613c0'
+                    on_active: lambda x='moon',y='ansari': app.choose(x,y)
+
+
+
+
+            MDLabel:
+                text: app.slogan()['personal']
+                font_name: 'B Lotus'
+                font_size: 22
+                halign: 'right'
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding_y: 15
+                color:'white'
+                md_bg_color: '#b613c0'
+                padding:8
+
+            MDTextField:
+                id: user
+#                hint_text: '0 9 _ _  _ _ _  _ _ _ _'
+                text: app.slogan()['personal']
+                font_name:'B Lotus'
+                halign:'right'
+                validator: 'phone'
+                icon_left: "account"
+                size_hint_x: None
+                width: 200
+                font_size: 18
+                pos_hint: {"center_x": 0.5}
+                on_focus: app.focus()
+                color: '#b613c0'
+
+            MDBoxLayout:
+                orientation : 'vertical'
+
+            MDRectangleFlatButton:
+                md_bg_color: '#b613c0'
+                theme:'Custom'
+                text_color: 'white'
+                text: app.slogan()['continue']
+                font_name:'B Lotus'
+                font_size: 22
+                halign:'center'
+                pos_hint: {"center_x": 0.5}
+                on_press: app.order_continue()
+                size_hint: 1,.01
+                radius:30,40
